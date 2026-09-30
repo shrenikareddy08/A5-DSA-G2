@@ -1,0 +1,7 @@
+ID: D02
+TITLE: Computer Networks
+AUTHOR: Shrenika
+CATEGORY: Computer Science
+
+CONTENT:
+Computer networks connect systems and allow devices to exchange data. Networks use communication protocols, routing and reliable data transfer.

@@ -1,0 +1,7 @@
+ID: D05
+TITLE: Database Systems
+AUTHOR: Shrenika
+CATEGORY: Computer Science
+
+CONTENT:
+Database systems store, organize and retrieve structured information. Transactions, indexing, queries and data management support reliable applications.

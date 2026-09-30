@@ -1,0 +1,7 @@
+ID: D10
+TITLE: Japanese Language Basics
+AUTHOR: Shrenika
+CATEGORY: Foreign Language
+
+CONTENT:
+Japanese language basics introduce greetings, simple phrases, vocabulary and sentence patterns. Practice supports reading, writing and everyday communication.

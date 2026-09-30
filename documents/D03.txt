@@ -1,0 +1,7 @@
+ID: D03
+TITLE: Data Structures and Algorithms
+AUTHOR: Shrenika
+CATEGORY: Computer Science
+
+CONTENT:
+Data structures organize information and algorithms process that information. Graphs, trees, arrays and dynamic programming are useful for efficient computation.

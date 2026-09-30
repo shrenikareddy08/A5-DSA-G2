@@ -1,0 +1,7 @@
+ID: D01
+TITLE: Operating Systems
+AUTHOR: Shrenika
+CATEGORY: Computer Science
+
+CONTENT:
+Operating systems manage computer resources, processes, memory and files. They provide services for applications and manage hardware resources.
