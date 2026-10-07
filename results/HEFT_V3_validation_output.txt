@@ -1,0 +1,250 @@
+
+============================================================
+              HEFT V3 RUNTIME-AWARE TEST
+============================================================
+
+RESOURCES CREATED
+-----------------
+R01 -> CPU: 4 | Memory: 4096 MB
+R02 -> CPU: 2 | Memory: 2048 MB
+R03 -> CPU: 1 | Memory: 1024 MB
+
+TASKS CREATED
+-------------
+V301 -> KMP
+V302 -> Rabin-Karp
+V303 -> Z Algorithm
+V304 -> Suffix Array
+V305 -> Edit Distance
+V306 -> Sequence Alignment
+
+DEPENDENCIES CREATED
+--------------------
+V301 -> V304
+V302 -> V304
+V304 -> V306
+V303 -> V305
+
+==============================================
+       HEFT V3 RUNTIME-AWARE UPWARD RANKS
+==============================================
+V301 | KMP Pattern Search             | Runtime =  1000.00 ms | Rank =    5000.00
+V302 | Rabin-Karp Keyword Search      | Runtime =  1000.00 ms | Rank =    5000.00
+V304 | Suffix Array Indexing          | Runtime =  2000.00 ms | Rank =    4000.00
+V303 | Z Algorithm Analysis           | Runtime =  1000.00 ms | Rank =    3000.00
+V305 | Edit Distance Similarity       | Runtime =  2000.00 ms | Rank =    2000.00
+V306 | Sequence Alignment             | Runtime =  2000.00 ms | Rank =    2000.00
+
+============================================================
+              STARTING HEFT V3 EXECUTION
+============================================================
+
+==============================================
+     HEFT V3 RUNTIME-AWARE DYNAMIC SCHEDULER
+==============================================
+Runtime learning        : ENABLED
+Dynamic resource choice : ENABLED
+Real algorithm execution: ENABLED
+Parallel execution      : ENABLED
+
+----------------------------------------------
+HEFT V3 ROUND 1
+----------------------------------------------
+V301 -> R01 | Rank 5000.00 | Predicted 1000.00 ms
+V302 -> R02 | Rank 5000.00 | Predicted 2000.00 ms
+V303 -> R03 | Rank 3000.00 | Predicted 4000.00 ms
+V302 started on R02 using V3-Worker-2
+V303 started on R03 using V3-Worker-3
+V301 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+
+==============================================
+              TASK EXECUTION
+==============================================
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : V302
+Task Name : Rabin-Karp Keyword Search
+Task ID   : V303
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Task ID   : V301
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : D01
+Algorithm : Rabin-Karp
+Document  : D01
+Document  : D01
+
+[ALGORITHM] Rabin-Karp
+
+[ALGORITHM] KMP
+Pattern    : memory
+Pattern    : memory
+Text size  : 160
+Text size  : 160
+Matches    : 1
+Positions  : 143
+
+Task completed successfully.
+==============================================
+V302 finished on R02 | Actual 11.613 ms | New estimate 11.613 ms
+Matches    : 1
+Positions  : 143
+
+Task completed successfully.
+==============================================
+V301 finished on R01 | Actual 12.012 ms | New estimate 12.012 ms
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 160
+Matches    : 1
+Positions  : 143
+
+Task completed successfully.
+==============================================
+V303 finished on R03 | Actual 13.173 ms | New estimate 13.173 ms
+Round 1 completed | Completed=3 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 2
+----------------------------------------------
+V304 -> R01 | Rank 4000.00 | Predicted 2000.00 ms
+V305 -> R02 | Rank 2000.00 | Predicted 4000.00 ms
+V304 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : V304
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : D01
+
+[ALGORITHM] Suffix Array
+Text size  : 160
+V305 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : V305
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : D01
+
+[ALGORITHM] Edit Distance
+First part length  : 80
+Second part length : 80
+Edit distance      : 65
+
+Task completed successfully.
+==============================================
+V305 finished on R02 | Actual 1.484 ms | New estimate 1.484 ms
+Suffixes   : 160
+LCP array  : 160
+Suffix 0 -> index 76 : 
+
+CONTENT:
+Operating systems manage comp...
+Suffix 1 -> index 32 : 
+AUTHOR: Shrenika
+CATEGORY: Computer Sci...
+Suffix 2 -> index 49 : 
+CATEGORY: Computer Science
+
+CONTENT:
+Op...
+Suffix 3 -> index 77 : 
+CONTENT:
+Operating systems manage compu...
+Suffix 4 -> index 86 : 
+Operating systems manage computer resou...
+
+Task completed successfully.
+==============================================
+V304 finished on R01 | Actual 8.566 ms | New estimate 8.566 ms
+Round 2 completed | Completed=5 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 3
+----------------------------------------------
+V306 -> R01 | Rank 2000.00 | Predicted 2000.00 ms
+V306 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : V306
+Task Name : Sequence Alignment
+Algorithm : Sequence Alignment
+Document  : D01
+
+[ALGORITHM] Sequence Alignment
+First sequence length  : 80
+Second sequence length : 80
+Alignment score        : -35
+Aligned sequence 1     : ID: D01
+TITLE: Operating Systems
+AUTHOR: Shrenika
+CATEGORY: -Compute-r ----Scien...
+Aligned sequence 2     : -------NT-ENT:
+Operating systems manage computer resources, processes, memory an...
+
+Task completed successfully.
+==============================================
+V306 finished on R01 | Actual 2.462 ms | New estimate 2.462 ms
+Round 3 completed | Completed=6 Failed=0
+
+==============================================
+         HEFT V3 PERFORMANCE REPORT
+==============================================
+Completed Tasks    : 6
+Failed Tasks       : 0
+Blocked Tasks      : 0
+Scheduling Rounds  : 3
+Makespan (ms)      : 37
+Throughput         : 162.16 tasks/sec
+CPU Utilization    : 23.87%
+Memory Utilization : 2.98%
+==============================================
+
+==============================================
+          HEFT V3 RUNTIME PROFILES
+==============================================
+V301 | KMP                  | Estimate 12.012 ms | Last 12.012 ms | Samples 1
+V302 | Rabin-Karp           | Estimate 11.613 ms | Last 11.613 ms | Samples 1
+V303 | Z                    | Estimate 13.173 ms | Last 13.173 ms | Samples 1
+V304 | Suffix Array         | Estimate 8.566 ms | Last 8.566 ms | Samples 1
+V305 | Edit Distance        | Estimate 1.484 ms | Last 1.484 ms | Samples 1
+V306 | Sequence Alignment   | Estimate 2.462 ms | Last 2.462 ms | Samples 1
+
+============================================================
+                 FINAL VALIDATION
+============================================================
+Total Tasks       : 6
+Completed Tasks   : 6
+Failed Tasks      : 0
+Blocked Tasks     : 0
+Scheduling Rounds : 3
+Makespan          : 37 ms
+============================================================
+SUCCESS: HEFT V3 VALIDATION PASSED
+============================================================
+             LEARNED RUNTIME ESTIMATES
+============================================================
+V301 KMP                : 12.012 ms
+V302 Rabin-Karp         : 11.613 ms
+V303 Z Algorithm        : 13.173 ms
+V304 Suffix Array       : 8.566 ms
+V305 Edit Distance      : 1.484 ms
+V306 Sequence Alignment : 2.462 ms
+============================================================
+                    TEST COMPLETE
+============================================================

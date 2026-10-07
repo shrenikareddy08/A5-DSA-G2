@@ -1,0 +1,7 @@
+ID: D09
+TITLE: Indian Rivers and Geography
+AUTHOR: Corpus Team
+CATEGORY: Geography
+
+CONTENT:
+Indian geography includes major river systems such as the Ganga, Brahmaputra and Godavari. Geographical documents contain names, relationships and descriptions that can be searched, indexed and compared. Graph representations can also model connections among places and resources.

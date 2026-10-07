@@ -1,7 +1,7 @@
 ID: D05
 TITLE: Database Systems
-AUTHOR: Shrenika
+AUTHOR: Corpus Team
 CATEGORY: Computer Science
 
 CONTENT:
-Database systems store, organize and retrieve structured information. Transactions, indexing, queries and data management support reliable applications.
+Database management systems organize structured information using schemas, queries, indexes and transactions. Indexes accelerate search, while concurrency control and recovery protect consistency. Efficient database workloads benefit from intelligent scheduling and resource-aware execution.

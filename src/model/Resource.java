@@ -1,49 +1,114 @@
 package model;
 
 public class Resource {
-    private final String resourceId;
-    private final String name;
-    private final int totalCpu;
-    private final int totalMemory;
+
+    private String resourceId;
+    private String resourceName;
+
+    private int totalCpu;
     private int availableCpu;
+
+    private int totalMemory;
     private int availableMemory;
 
-    public Resource(String resourceId, String name, int totalCpu, int totalMemory) {
+    private boolean busy;
+
+    public Resource(String resourceId,
+                    String resourceName,
+                    int totalCpu,
+                    int totalMemory) {
+
         this.resourceId = resourceId;
-        this.name = name;
+        this.resourceName = resourceName;
+
         this.totalCpu = totalCpu;
-        this.totalMemory = totalMemory;
         this.availableCpu = totalCpu;
+
+        this.totalMemory = totalMemory;
         this.availableMemory = totalMemory;
+
+        this.busy = false;
     }
 
-    public String getResourceId() { return resourceId; }
-    public String getName() { return name; }
-    public int getTotalCpu() { return totalCpu; }
-    public int getTotalMemory() { return totalMemory; }
-    public int getAvailableCpu() { return availableCpu; }
-    public int getAvailableMemory() { return availableMemory; }
-
-    public synchronized boolean canRun(Task task) {
-        return task.getCpuRequired() <= availableCpu
-                && task.getMemoryRequired() <= availableMemory;
+    public String getResourceId() {
+        return resourceId;
     }
 
-    public synchronized boolean allocate(Task task) {
-        if (!canRun(task)) return false;
-        availableCpu -= task.getCpuRequired();
-        availableMemory -= task.getMemoryRequired();
-        return true;
+    public String getResourceName() {
+        return resourceName;
     }
 
-    public synchronized void release(Task task) {
-        availableCpu += task.getCpuRequired();
-        availableMemory += task.getMemoryRequired();
-        if (availableCpu > totalCpu) availableCpu = totalCpu;
-        if (availableMemory > totalMemory) availableMemory = totalMemory;
+    public int getTotalCpu() {
+        return totalCpu;
+    }
+
+    public int getAvailableCpu() {
+        return availableCpu;
+    }
+
+    public int getTotalMemory() {
+        return totalMemory;
+    }
+
+    public int getAvailableMemory() {
+        return availableMemory;
     }
 
     public boolean isBusy() {
-        return availableCpu < totalCpu || availableMemory < totalMemory;
+        return busy;
+    }
+
+    public boolean canRunTask(Task task) {
+
+        if (task.getCpuRequired() <= availableCpu
+                && task.getMemoryRequired() <= availableMemory) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void allocate(Task task) {
+
+        if (canRunTask(task)) {
+
+            availableCpu -= task.getCpuRequired();
+            availableMemory -= task.getMemoryRequired();
+
+            busy = true;
+        }
+    }
+
+    public void release(Task task) {
+
+        availableCpu += task.getCpuRequired();
+        availableMemory += task.getMemoryRequired();
+
+        if (availableCpu == totalCpu) {
+            busy = false;
+        }
+    }
+
+    public void displayResource() {
+
+        System.out.println("\n----------------------------------------------");
+
+        System.out.println("Resource ID       : " + resourceId);
+        System.out.println("Resource Name     : " + resourceName);
+
+        System.out.println(
+                "CPU               : "
+                + availableCpu + "/" + totalCpu + " cores available");
+
+        System.out.println(
+                "Memory            : "
+                + availableMemory + "/" + totalMemory + " MB available");
+
+        System.out.println(
+                "Status            : "
+                + (busy ? "BUSY" : "AVAILABLE"));
+
+        System.out.println("----------------------------------------------");
     }
 }

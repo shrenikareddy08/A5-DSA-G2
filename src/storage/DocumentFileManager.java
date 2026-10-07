@@ -1,14 +1,15 @@
 package storage;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import model.Document;
 
-/** Handles the small file-based document library used by the project. */
 public class DocumentFileManager {
+
     private final String folderName = "documents";
 
     public DocumentFileManager() {
@@ -16,118 +17,140 @@ public class DocumentFileManager {
         if (!folder.exists()) folder.mkdirs();
     }
 
+    public boolean documentExists(String documentId) {
+        if (documentId == null || documentId.trim().length() == 0) return false;
+        return new File(folderName + File.separator + documentId + ".txt").exists();
+    }
+
     public void saveDocument(Document document) {
-        File file = new File(folderName, document.getDocumentId() + ".txt");
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write("ID: " + document.getDocumentId() + "\n");
-            writer.write("TITLE: " + document.getTitle() + "\n");
-            writer.write("AUTHOR: " + document.getAuthor() + "\n");
-            writer.write("CATEGORY: " + document.getCategory() + "\n\n");
+        if (document == null) {
+            System.out.println("Cannot save a null document.");
+            return;
+        }
+        String id = document.getDocumentId();
+        if (!isSafeId(id)) {
+            System.out.println("Invalid document ID. Use letters, numbers, _ or - only.");
+            return;
+        }
+        if (document.getTitle() == null || document.getTitle().trim().length() == 0
+                || document.getContent() == null || document.getContent().trim().length() == 0) {
+            System.out.println("Title and document content are required.");
+            return;
+        }
+
+        File file = new File(folderName + File.separator + id + ".txt");
+        if (file.exists()) {
+            System.out.println("Document ID already exists: " + id);
+            return;
+        }
+
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write("ID: " + id + "\n");
+            writer.write("TITLE: " + safe(document.getTitle()) + "\n");
+            writer.write("AUTHOR: " + safe(document.getAuthor()) + "\n");
+            writer.write("CATEGORY: " + safe(document.getCategory()) + "\n\n");
             writer.write("CONTENT:\n");
-            writer.write(document.getContent());
+            writer.write(document.getContent().trim());
+            writer.write("\n");
+            writer.close();
             System.out.println("Document saved successfully.");
         } catch (IOException e) {
-            System.out.println("Unable to save document: " + e.getMessage());
+            System.out.println("Error saving document: " + e.getMessage());
         }
-    }
-
-    public String readDocumentContent(String documentId) {
-        File file = new File(folderName, documentId + ".txt");
-        if (!file.exists()) return null;
-
-        StringBuilder content = new StringBuilder();
-        boolean insideContent = false;
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.equals("CONTENT:")) {
-                    insideContent = true;
-                    continue;
-                }
-                if (insideContent) content.append(line).append('\n');
-            }
-            return content.toString();
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public Document loadDocument(String documentId) {
-        File file = new File(folderName, documentId + ".txt");
-        if (!file.exists()) return null;
-
-        String title = documentId;
-        String author = "";
-        String category = "Text";
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("TITLE: ")) title = line.substring(7).trim();
-                else if (line.startsWith("AUTHOR: ")) author = line.substring(8).trim();
-                else if (line.startsWith("CATEGORY: ")) category = line.substring(10).trim();
-                else if (line.equals("CONTENT:")) break;
-            }
-            return new Document(documentId, title, author, category, readDocumentContent(documentId));
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public List<String> getDocumentIds() {
-        File folder = new File(folderName);
-        File[] files = folder.listFiles();
-        List<String> ids = new ArrayList<String>();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isFile() && file.getName().endsWith(".txt")) {
-                    ids.add(file.getName().substring(0, file.getName().length() - 4));
-                }
-            }
-        }
-        Collections.sort(ids, new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                return compareDocumentIds(a, b);
-            }
-        });
-        return ids;
-    }
-
-    private int compareDocumentIds(String a, String b) {
-        String an = a.replaceAll("\\D", "");
-        String bn = b.replaceAll("\\D", "");
-        if (!an.isEmpty() && !bn.isEmpty()) {
-            try {
-                int ai = Integer.parseInt(an);
-                int bi = Integer.parseInt(bn);
-                if (ai != bi) return ai < bi ? -1 : 1;
-            } catch (NumberFormatException ignored) { }
-        }
-        return a.compareToIgnoreCase(b);
     }
 
     public void listDocuments() {
-        List<String> ids = getDocumentIds();
-        System.out.println("\n" + "-".repeat(74));
-        if (ids.isEmpty()) {
-            System.out.println("No documents available.");
-        } else {
-            for (String id : ids) System.out.println(id);
+        File folder = new File(folderName);
+        File[] files = folder.listFiles();
+        System.out.println("\n============================================================");
+        System.out.println("                       DOCUMENT LIBRARY");
+        System.out.println("============================================================");
+        int count = 0;
+        if (files != null) {
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].isFile() && files[i].getName().toLowerCase().endsWith(".txt")) {
+                    count++;
+                    System.out.println(String.format("%2d. %-12s %8d bytes", count,
+                            files[i].getName(), files[i].length()));
+                }
+            }
         }
-        System.out.println("-".repeat(74));
+        if (count == 0) System.out.println("No TXT documents found.");
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Stored documents : " + count);
+        System.out.println("============================================================");
     }
 
     public void readDocument(String documentId) {
-        Document document = loadDocument(documentId);
-        if (document == null) {
+        File file = fileFor(documentId);
+        if (!file.exists()) {
+            System.out.println("Document not found: " + documentId);
+            return;
+        }
+        System.out.println("\n============================================================");
+        System.out.println("                      DOCUMENT CONTENT");
+        System.out.println("============================================================");
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) System.out.println(line);
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error reading document: " + e.getMessage());
+        }
+        System.out.println("============================================================");
+    }
+
+    public String readDocumentContent(String documentId) {
+        File file = fileFor(documentId);
+        if (!file.exists()) return null;
+        StringBuilder content = new StringBuilder();
+        boolean contentSection = false;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().equalsIgnoreCase("CONTENT:")) {
+                    contentSection = true;
+                    continue;
+                }
+                if (contentSection) {
+                    if (content.length() > 0) content.append('\n');
+                    content.append(line);
+                }
+            }
+            reader.close();
+            return contentSection ? content.toString() : null;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public void deleteDocument(String documentId) {
+        File file = fileFor(documentId);
+        if (!file.exists()) {
             System.out.println("Document not found.");
             return;
         }
-        document.displayDocument();
+        if (file.delete()) System.out.println("Document deleted successfully.");
+        else System.out.println("Unable to delete document.");
     }
 
-    public boolean deleteDocument(String documentId) {
-        File file = new File(folderName, documentId + ".txt");
-        return file.exists() && file.delete();
+    private File fileFor(String documentId) {
+        return new File(folderName + File.separator + documentId + ".txt");
+    }
+
+    private boolean isSafeId(String id) {
+        if (id == null || id.length() == 0) return false;
+        for (int i = 0; i < id.length(); i++) {
+            char c = id.charAt(i);
+            if (!(Character.isLetterOrDigit(c) || c == '_' || c == '-')) return false;
+        }
+        return true;
+    }
+
+    private String safe(String value) {
+        return value == null ? "" : value.trim();
     }
 }

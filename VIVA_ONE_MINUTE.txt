@@ -1,0 +1,30 @@
+PROJECT TITLE
+Intelligent Resource Scheduling for Text Processing Pipelines
+
+ONE-MINUTE EXPLANATION
+Our system is a user-driven text analytics platform built around a stored
+TXT corpus. A user can search exact patterns, perform fast substring
+search, compare documents fuzzily, analyse pattern structure, build suffix
+indexes, and align documents. Each request is converted into a computational
+Task with CPU, memory, priority and dependency information. The intelligent
+scheduler then identifies ready tasks, computes runtime-aware HEFT upward
+ranks, checks heterogeneous resource compatibility, chooses a resource by
+predicted finish time, executes independent work in parallel and learns from
+actual runtime. Therefore the project is primarily a text-processing system;
+HEFT is the internal scheduling intelligence that makes the pipeline
+resource-aware.
+
+DSA-3 MAPPING
+KMP -> string matching
+Rabin-Karp -> polynomial rolling hash
+Z -> linear string structure
+Suffix Array + LCP -> suffix structures
+Edit Distance -> dynamic programming
+Sequence Alignment -> dynamic programming
+Edmonds-Karp -> network flow
+HEFT-based scheduler -> scheduling / approximation
+Miller-Rabin -> randomized algorithms
+
+NO java.util.* IN ENGINE
+Core algorithms and scheduling structures are manually implemented.
+============================================================

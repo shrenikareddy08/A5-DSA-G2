@@ -3,32 +3,115 @@ package structures;
 import model.Task;
 
 public class CustomPriorityQueue {
-    private final Task[] data;
+
+    private Task[] tasks;
     private int size;
 
     public CustomPriorityQueue(int capacity) {
-        data = new Task[capacity];
+
+        tasks = new Task[capacity];
+        size = 0;
     }
 
-    public boolean isEmpty() { return size == 0; }
+    public boolean isEmpty() {
 
-    public void add(Task task) {
-        if (size == data.length) return;
-        data[size++] = task;
-        for (int i = size - 1; i > 0; i--) {
-            if (data[i].getPriority() > data[i - 1].getPriority()) {
-                Task temp = data[i];
-                data[i] = data[i - 1];
-                data[i - 1] = temp;
+        return size == 0;
+    }
+
+    public int size() {
+
+        return size;
+    }
+
+    public void insert(Task task) {
+
+        if (size == tasks.length) {
+
+            System.out.println("Priority queue is full.");
+            return;
+        }
+
+        tasks[size] = task;
+        size++;
+
+        arrange();
+    }
+
+    private void arrange() {
+
+        for (int i = 0; i < size - 1; i++) {
+
+            for (int j = 0; j < size - i - 1; j++) {
+
+                if (tasks[j].getPriorityValue()
+                        < tasks[j + 1].getPriorityValue()) {
+
+                    Task temp = tasks[j];
+
+                    tasks[j] = tasks[j + 1];
+
+                    tasks[j + 1] = temp;
+                }
             }
         }
     }
 
-    public Task remove() {
-        if (size == 0) return null;
-        Task result = data[0];
-        for (int i = 1; i < size; i++) data[i - 1] = data[i];
-        data[--size] = null;
-        return result;
+    public Task removeHighestPriority() {
+
+        if (isEmpty()) {
+
+            return null;
+        }
+
+        Task selected = tasks[0];
+
+        for (int i = 0; i < size - 1; i++) {
+
+            tasks[i] = tasks[i + 1];
+        }
+
+        tasks[size - 1] = null;
+
+        size--;
+
+        return selected;
+    }
+
+    public Task peek() {
+
+        if (isEmpty()) {
+
+            return null;
+        }
+
+        return tasks[0];
+    }
+
+    public void displayQueue() {
+
+        System.out.println("\n==============================================");
+        System.out.println("             PRIORITY QUEUE");
+        System.out.println("==============================================");
+
+        if (isEmpty()) {
+
+            System.out.println("Queue is empty.");
+
+        } else {
+
+            for (int i = 0; i < size; i++) {
+
+                System.out.println(
+                        (i + 1)
+                        + ". "
+                        + tasks[i].getTaskId()
+                        + " - "
+                        + tasks[i].getTaskName()
+                        + " - "
+                        + tasks[i].getPriority());
+            }
+        }
+
+        System.out.println("==============================================");
     }
 }

@@ -1,0 +1,1752 @@
+
+==============================================
+   FINAL 3-WAY SCHEDULER BENCHMARK
+==============================================
+Schedulers: Intelligent vs HEFT V2 vs HEFT V3
+Tasks     : 18
+Resources : 3
+Repetitions: 3
+==============================================
+Resource R01 added to scheduler.
+Resource R02 added to scheduler.
+Resource R03 added to scheduler.
+Task I1_01 added to scheduler.
+Task I1_02 added to scheduler.
+Task I1_03 added to scheduler.
+Task I1_04 added to scheduler.
+Task I1_05 added to scheduler.
+Task I1_06 added to scheduler.
+Task I2_01 added to scheduler.
+Task I2_02 added to scheduler.
+Task I2_03 added to scheduler.
+Task I2_04 added to scheduler.
+Task I2_05 added to scheduler.
+Task I2_06 added to scheduler.
+Task I3_01 added to scheduler.
+Task I3_02 added to scheduler.
+Task I3_03 added to scheduler.
+Task I3_04 added to scheduler.
+Task I3_05 added to scheduler.
+Task I3_06 added to scheduler.
+
+==============================================
+       INTELLIGENT PARALLEL SCHEDULER
+==============================================
+Dependency graph is valid.
+Intelligent scheduling engine: ENABLED.
+Real algorithm execution: ENABLED.
+Parallel resource execution: ENABLED.
+==============================================
+
+          PERFORMANCE MONITOR
+==============================================
+Performance monitoring started.
+
+==============================================
+                 ROUND 1
+==============================================
+I1_01 is READY.
+I1_02 is READY.
+I1_03 is READY.
+I1_04 is READY.
+I2_01 is READY.
+I2_02 is READY.
+I2_03 is READY.
+I2_04 is READY.
+I3_01 is READY.
+I3_02 is READY.
+I3_03 is READY.
+I3_04 is READY.
+I1_01 -> R01 -> READY | Intelligent Score: 125.00
+I1_02 -> R02 -> READY | Intelligent Score: 123.00
+I1_04 -> R03 -> READY | Intelligent Score: 119.00
+I1_01 allocated to R01
+I1_02 allocated to R02
+I1_04 allocated to R03
+
+Starting intelligent parallel execution...
+I1_01 started on Worker-1 using R01
+I1_02 started on Worker-2 using R02
+
+I1_01 - Attempt 1
+
+I1_02 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I1_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+Task ID   : I1_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+I1_04 started on Worker-3 using R03
+
+I1_04 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I1_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Pattern    : memory
+Text size  : 10120
+Text size  : 10120
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Matches    : 110
+Positions  : 0, 92, 184, 276, Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3 ms
+Attempts used: 1
+I1_04 execution successful.
+I1_04 finished on Worker-3 -> COMPLETED
+368, Actual algorithm execution time: 8 ms
+Attempts used: 1
+I1_01 execution successful.
+I1_01 finished on Worker-1 -> COMPLETED
+460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 10 ms
+Attempts used: 1
+I1_02 execution successful.
+I1_02 finished on Worker-2 -> COMPLETED
+I1_01 -> COMPLETED
+R01 -> RELEASED
+I1_02 -> COMPLETED
+R02 -> RELEASED
+I1_04 -> COMPLETED
+R03 -> RELEASED
+
+Round 1 completed.
+Completed tasks: 3/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 2
+==============================================
+I1_05 is READY.
+I2_01 -> R01 -> READY | Intelligent Score: 125.00
+I2_02 -> R02 -> READY | Intelligent Score: 123.00
+I2_04 -> R03 -> READY | Intelligent Score: 119.00
+I2_01 allocated to R01
+I2_02 allocated to R02
+I2_04 allocated to R03
+
+Starting intelligent parallel execution...
+I2_01 started on Worker-1 using R01
+
+I2_01 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+I2_02 started on Worker-2 using R02
+
+I2_02 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 2 ms
+Attempts used: 1
+I2_02 execution successful.
+I2_02 finished on Worker-2 -> COMPLETED
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 4 ms
+Attempts used: 1
+I2_01 execution successful.
+I2_01 finished on Worker-1 -> COMPLETED
+I2_04 started on Worker-3 using R03
+
+I2_04 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3 ms
+Attempts used: 1
+I2_04 execution successful.
+I2_04 finished on Worker-3 -> COMPLETED
+I2_01 -> COMPLETED
+R01 -> RELEASED
+I2_02 -> COMPLETED
+R02 -> RELEASED
+I2_04 -> COMPLETED
+R03 -> RELEASED
+
+Round 2 completed.
+Completed tasks: 6/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 3
+==============================================
+I2_05 is READY.
+I3_01 -> R01 -> READY | Intelligent Score: 125.00
+I3_02 -> R02 -> READY | Intelligent Score: 123.00
+I3_04 -> R03 -> READY | Intelligent Score: 119.00
+I3_01 allocated to R01
+I3_02 allocated to R02
+I3_04 allocated to R03
+
+Starting intelligent parallel execution...
+I3_02 started on Worker-2 using R02
+
+I3_02 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+I3_01 started on Worker-1 using R01
+
+I3_01 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I3_01
+I3_04 started on Worker-3 using R03
+
+I3_04 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I3_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644==============================================
+Task ID   : I3_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3 ms
+Attempts used: 1
+I3_02 execution successful.
+I3_02 finished on Worker-2 -> COMPLETED
+, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3 ms
+Attempts used: 1
+I3_04 execution successful.
+I3_04 finished on Worker-3 -> COMPLETED
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 6 ms
+Attempts used: 1
+I3_01 execution successful.
+I3_01 finished on Worker-1 -> COMPLETED
+I3_01 -> COMPLETED
+R01 -> RELEASED
+I3_02 -> COMPLETED
+R02 -> RELEASED
+I3_04 -> COMPLETED
+R03 -> RELEASED
+
+Round 3 completed.
+Completed tasks: 9/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 4
+==============================================
+I3_05 is READY.
+I1_05 -> R01 -> READY | Intelligent Score: 119.00
+I2_05 -> R02 -> READY | Intelligent Score: 115.00
+I1_03 -> R03 -> READY | Intelligent Score: 109.00
+I1_05 allocated to R01
+I2_05 allocated to R02
+I1_03 allocated to R03
+
+Starting intelligent parallel execution...
+I1_05 started on Worker-1 using R01
+
+I1_05 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I1_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+I2_05 started on Worker-2 using R02
+
+I2_05 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+I1_03 started on Worker-3 using R03
+
+I1_03 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I1_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 4 ms
+Attempts used: 1
+I1_03 execution successful.
+I1_03 finished on Worker-3 -> COMPLETED
+Suffixes   : 10120
+LCP array  : 10120
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3051 ms
+Actual algorithm execution time: 3049 ms
+Attempts used: 1
+Attempts used: 1
+I2_05 execution successful.
+I2_05 finished on Worker-2 -> COMPLETED
+I1_05 execution successful.
+I1_05 finished on Worker-1 -> COMPLETED
+I1_05 -> COMPLETED
+R01 -> RELEASED
+I2_05 -> COMPLETED
+R02 -> RELEASED
+I1_03 -> COMPLETED
+R03 -> RELEASED
+
+Round 4 completed.
+Completed tasks: 12/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 5
+==============================================
+I1_06 is READY.
+I3_05 -> R01 -> READY | Intelligent Score: 119.00
+I2_03 -> R02 -> READY | Intelligent Score: 113.00
+I3_03 -> R03 -> READY | Intelligent Score: 109.00
+I3_05 allocated to R01
+I2_03 allocated to R02
+I3_03 allocated to R03
+
+Starting intelligent parallel execution...
+I3_05 started on Worker-1 using R01
+
+I3_05 - Attempt 1
+
+==============================================
+I2_03 started on Worker-2 using R02
+              TASK EXECUTION
+==============================================
+Task ID   : I3_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+I3_03 started on Worker-3 using R03
+
+I3_03 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I3_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+I2_03 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 2 ms
+Attempts used: 1
+I2_03 execution successful.
+I2_03 finished on Worker-2 -> COMPLETED
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 3 ms
+Attempts used: 1
+I3_03 execution successful.
+I3_03 finished on Worker-3 -> COMPLETED
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 2811 ms
+Attempts used: 1
+I3_05 execution successful.
+I3_05 finished on Worker-1 -> COMPLETED
+I3_05 -> COMPLETED
+R01 -> RELEASED
+I2_03 -> COMPLETED
+R02 -> RELEASED
+I3_03 -> COMPLETED
+R03 -> RELEASED
+
+Round 5 completed.
+Completed tasks: 15/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 6
+==============================================
+I2_06 is READY.
+I3_06 is READY.
+I1_06 -> R01 -> READY | Intelligent Score: 109.00
+I2_06 -> R02 -> READY | Intelligent Score: 105.00
+I1_06 allocated to R01
+I2_06 allocated to R02
+
+Starting intelligent parallel execution...
+I1_06 started on Worker-1 using R01
+
+I1_06 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I1_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+I2_06 started on Worker-2 using R02
+
+I2_06 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I2_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+First part length  : 184
+Second part length : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 10 ms
+Attempts used: 1
+I1_06 execution successful.
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 4 ms
+Attempts used: 1
+I2_06 execution successful.
+I1_06 finished on Worker-1 -> COMPLETED
+I2_06 finished on Worker-2 -> COMPLETED
+I1_06 -> COMPLETED
+R01 -> RELEASED
+I2_06 -> COMPLETED
+R02 -> RELEASED
+
+Round 6 completed.
+Completed tasks: 17/18
+Failed tasks: 0
+Blocked tasks: 0
+
+==============================================
+                 ROUND 7
+==============================================
+I3_06 -> R01 -> READY | Intelligent Score: 109.00
+I3_06 allocated to R01
+
+Starting intelligent parallel execution...
+I3_06 started on Worker-1 using R01
+
+I3_06 - Attempt 1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : I3_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+Actual algorithm execution time: 1 ms
+Attempts used: 1
+I3_06 execution successful.
+I3_06 finished on Worker-1 -> COMPLETED
+I3_06 -> COMPLETED
+R01 -> RELEASED
+
+Round 7 completed.
+Completed tasks: 18/18
+Failed tasks: 0
+Blocked tasks: 0
+
+Performance monitoring stopped.
+
+==============================================
+             FINAL SCHEDULER STATUS
+==============================================
+Completed tasks : 18
+Failed tasks    : 0
+Blocked tasks   : 0
+ALL TASKS COMPLETED SUCCESSFULLY
+==============================================
+
+==============================================
+             PERFORMANCE RESULTS
+==============================================
+Total Tasks       : 18
+Completed Tasks   : 18
+Failed Tasks      : 0
+Blocked Tasks     : 0
+Execution Time    : 5927 ms
+Throughput        : 3.04 tasks/sec
+Scheduling Rounds : 7
+==============================================
+
+==================================================
+       HEFT V2 STRICT PLAN EXECUTION
+==================================================
+
+==================================================
+             HEFT V2 UPWARD RANKS
+==================================================
+H21_01 | KMP Pattern Search             | Rank = 3.00
+H21_02 | Rabin-Karp Keyword Search      | Rank = 3.00
+H21_03 | Z Algorithm Analysis           | Rank = 3.00
+H21_04 | KMP Secondary Search           | Rank = 3.00
+H22_01 | KMP Pattern Search             | Rank = 3.00
+H22_02 | Rabin-Karp Keyword Search      | Rank = 3.00
+H22_03 | Z Algorithm Analysis           | Rank = 3.00
+H22_04 | KMP Secondary Search           | Rank = 3.00
+H23_01 | KMP Pattern Search             | Rank = 3.00
+H23_02 | Rabin-Karp Keyword Search      | Rank = 3.00
+H23_03 | Z Algorithm Analysis           | Rank = 3.00
+H23_04 | KMP Secondary Search           | Rank = 3.00
+H21_05 | Suffix Array Indexing          | Rank = 2.00
+H21_06 | Edit Distance Similarity       | Rank = 2.00
+H22_05 | Suffix Array Indexing          | Rank = 2.00
+H22_06 | Edit Distance Similarity       | Rank = 2.00
+H23_05 | Suffix Array Indexing          | Rank = 2.00
+H23_06 | Edit Distance Similarity       | Rank = 2.00
+
+==================================================
+              HEFT V2 STATIC PLAN
+==================================================
+H21_01 -> R01 | Rank 3.00 | EST 0.00 | EFT 1.00
+H21_02 -> R01 | Rank 3.00 | EST 1.00 | EFT 2.00
+H21_03 -> R02 | Rank 3.00 | EST 0.00 | EFT 2.00
+H21_04 -> R01 | Rank 3.00 | EST 2.00 | EFT 3.00
+H22_01 -> R01 | Rank 3.00 | EST 3.00 | EFT 4.00
+H22_02 -> R02 | Rank 3.00 | EST 2.00 | EFT 4.00
+H22_03 -> R03 | Rank 3.00 | EST 0.00 | EFT 4.00
+H22_04 -> R01 | Rank 3.00 | EST 4.00 | EFT 5.00
+H23_01 -> R01 | Rank 3.00 | EST 5.00 | EFT 6.00
+H23_02 -> R02 | Rank 3.00 | EST 4.00 | EFT 6.00
+H23_03 -> R01 | Rank 3.00 | EST 6.00 | EFT 7.00
+H23_04 -> R01 | Rank 3.00 | EST 7.00 | EFT 8.00
+H21_05 -> R01 | Rank 2.00 | EST 8.00 | EFT 10.00
+H21_06 -> R02 | Rank 2.00 | EST 6.00 | EFT 10.00
+H22_05 -> R01 | Rank 2.00 | EST 10.00 | EFT 12.00
+H22_06 -> R01 | Rank 2.00 | EST 12.00 | EFT 14.00
+H23_05 -> R02 | Rank 2.00 | EST 10.00 | EFT 14.00
+H23_06 -> R01 | Rank 2.00 | EST 14.00 | EFT 16.00
+
+---------------- HEFT V2 ROUND 1 ----------------
+[HEFT V2 ASSIGN] H21_01 -> R01 | Rank 3.00
+[HEFT V2 ASSIGN] H21_03 -> R02 | Rank 3.00
+[HEFT V2 ASSIGN] H22_03 -> R03 | Rank 3.00
+[HEFT V2 START] H21_01 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H21_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+[HEFT V2 START] H21_03 -> R02
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H21_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_03 -> R02
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_01 -> R01
+[HEFT V2 START] H22_03 -> R03
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_03 -> R03
+
+---------------- HEFT V2 ROUND 2 ----------------
+[HEFT V2 ASSIGN] H21_02 -> R01 | Rank 3.00
+[HEFT V2 ASSIGN] H22_02 -> R02 | Rank 3.00
+[HEFT V2 START] H21_02 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H21_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_02 -> R01
+[HEFT V2 START] H22_02 -> R02
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_02 -> R02
+
+---------------- HEFT V2 ROUND 3 ----------------
+[HEFT V2 ASSIGN] H21_04 -> R01 | Rank 3.00
+[HEFT V2 ASSIGN] H23_02 -> R02 | Rank 3.00
+[HEFT V2 START] H21_04 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+[HEFT V2 START] H23_02 -> R02
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_02
+Task ID   : H21_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Task Name : Rabin-Karp Keyword Search
+Document  : bench_v3_large
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_04 -> R01
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_02 -> R02
+
+---------------- HEFT V2 ROUND 4 ----------------
+[HEFT V2 ASSIGN] H22_01 -> R01 | Rank 3.00
+[HEFT V2 ASSIGN] H21_06 -> R02 | Rank 2.00
+[HEFT V2 START] H22_01 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_01 -> R01
+[HEFT V2 START] H21_06 -> R02
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H21_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_06 -> R02
+
+---------------- HEFT V2 ROUND 5 ----------------
+[HEFT V2 ASSIGN] H22_04 -> R01 | Rank 3.00
+[HEFT V2 START] H22_04 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_04 -> R01
+
+---------------- HEFT V2 ROUND 6 ----------------
+[HEFT V2 ASSIGN] H23_01 -> R01 | Rank 3.00
+[HEFT V2 START] H23_01 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_01 -> R01
+
+---------------- HEFT V2 ROUND 7 ----------------
+[HEFT V2 ASSIGN] H23_03 -> R01 | Rank 3.00
+[HEFT V2 ASSIGN] H23_05 -> R02 | Rank 2.00
+[HEFT V2 START] H23_03 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+[HEFT V2 START] H23_05 -> R02
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_03 -> R01
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_05 -> R02
+
+---------------- HEFT V2 ROUND 8 ----------------
+[HEFT V2 ASSIGN] H23_04 -> R01 | Rank 3.00
+[HEFT V2 START] H23_04 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_04 -> R01
+
+---------------- HEFT V2 ROUND 9 ----------------
+[HEFT V2 ASSIGN] H21_05 -> R01 | Rank 2.00
+[HEFT V2 START] H21_05 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H21_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H21_05 -> R01
+
+---------------- HEFT V2 ROUND 10 ----------------
+[HEFT V2 ASSIGN] H22_05 -> R01 | Rank 2.00
+[HEFT V2 START] H22_05 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_05 -> R01
+
+---------------- HEFT V2 ROUND 11 ----------------
+[HEFT V2 ASSIGN] H22_06 -> R01 | Rank 2.00
+[HEFT V2 START] H22_06 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H22_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H22_06 -> R01
+
+---------------- HEFT V2 ROUND 12 ----------------
+[HEFT V2 ASSIGN] H23_06 -> R01 | Rank 2.00
+[HEFT V2 START] H23_06 -> R01
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H23_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+[HEFT V2 COMPLETE] H23_06 -> R01
+
+==================================================
+          HEFT V2 PERFORMANCE REPORT
+==================================================
+Total Tasks       : 18
+Completed Tasks   : 18
+Failed Tasks      : 0
+Blocked Tasks     : 0
+Scheduling Rounds : 12
+Makespan          : 9138.573 ms
+Throughput        : 1.97 tasks/sec
+CPU Utilization   : 28.52%
+Memory Utilization: 7.13%
+--------------------------------------------------
+SUCCESS: HEFT V2 completed all tasks.
+==================================================
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-KMP
+Task Name : Calibration KMP
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+V3 calibration KMP                : 0.368 ms
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-RK
+Task Name : Calibration Rabin-Karp
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+V3 calibration Rabin-Karp         : 0.390 ms
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-Z
+Task Name : Calibration Z
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+V3 calibration Z                  : 4.448 ms
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-SA
+Task Name : Calibration Suffix Array
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+V3 calibration Suffix Array       : 3739.902 ms
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-ED
+Task Name : Calibration Edit Distance
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+V3 calibration Edit Distance      : 0.765 ms
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : CAL-SA2
+Task Name : Calibration Sequence Alignment
+Algorithm : Sequence Alignment
+Document  : bench_v3_dp
+
+[ALGORITHM] Sequence Alignment
+First sequence length  : 184
+Second sequence length : 184
+Alignment score        : 368
+Aligned sequence 1     : memory scheduling algorithm page prediction heterogeneous resource text processi...
+Aligned sequence 2     : memory scheduling algorithm page prediction heterogeneous resource text processi...
+
+Task completed successfully.
+==============================================
+V3 calibration Sequence Alignment : 10.762 ms
+
+HEFT V3 calibration time: 3758 ms
+
+==============================================
+       HEFT V3 RUNTIME-AWARE UPWARD RANKS
+==============================================
+H31_02 | Rabin-Karp Keyword Search      | Runtime =     0.39 ms | Rank =    3740.29
+H32_02 | Rabin-Karp Keyword Search      | Runtime =     0.39 ms | Rank =    3740.29
+H33_02 | Rabin-Karp Keyword Search      | Runtime =     0.39 ms | Rank =    3740.29
+H32_01 | KMP Pattern Search             | Runtime =     0.37 ms | Rank =    3740.27
+H31_01 | KMP Pattern Search             | Runtime =     0.37 ms | Rank =    3740.27
+H33_01 | KMP Pattern Search             | Runtime =     0.37 ms | Rank =    3740.27
+H31_05 | Suffix Array Indexing          | Runtime =  3739.90 ms | Rank =    3739.90
+H32_05 | Suffix Array Indexing          | Runtime =  3739.90 ms | Rank =    3739.90
+H33_05 | Suffix Array Indexing          | Runtime =  3739.90 ms | Rank =    3739.90
+H31_03 | Z Algorithm Analysis           | Runtime =     4.45 ms | Rank =       5.21
+H33_03 | Z Algorithm Analysis           | Runtime =     4.45 ms | Rank =       5.21
+H32_03 | Z Algorithm Analysis           | Runtime =     4.45 ms | Rank =       5.21
+H32_04 | KMP Secondary Search           | Runtime =     0.37 ms | Rank =       1.13
+H31_04 | KMP Secondary Search           | Runtime =     0.37 ms | Rank =       1.13
+H33_04 | KMP Secondary Search           | Runtime =     0.37 ms | Rank =       1.13
+H31_06 | Edit Distance Similarity       | Runtime =     0.76 ms | Rank =       0.76
+H32_06 | Edit Distance Similarity       | Runtime =     0.76 ms | Rank =       0.76
+H33_06 | Edit Distance Similarity       | Runtime =     0.76 ms | Rank =       0.76
+
+==============================================
+     HEFT V3 RUNTIME-AWARE DYNAMIC SCHEDULER
+==============================================
+Runtime learning        : ENABLED
+Dynamic resource choice : ENABLED
+Real algorithm execution: ENABLED
+Parallel execution      : ENABLED
+
+----------------------------------------------
+HEFT V3 ROUND 1
+----------------------------------------------
+H31_02 -> R01 | Rank 3740.29 | Predicted 0.39 ms
+H32_02 -> R02 | Rank 3740.29 | Predicted 0.78 ms
+H33_02 -> R03 | Rank 3740.29 | Predicted 1.56 ms
+H31_02 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H31_02 finished on R01 | Actual 0.554 ms | New estimate 0.554 ms
+H33_02 started on R03 using V3-Worker-3
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H33_02 finished on R03 | Actual 0.445 ms | New estimate 0.445 ms
+H32_02 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_02
+Task Name : Rabin-Karp Keyword Search
+Algorithm : Rabin-Karp
+Document  : bench_v3_large
+
+[ALGORITHM] Rabin-Karp
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H32_02 finished on R02 | Actual 1.336 ms | New estimate 1.336 ms
+Round 1 completed | Completed=3 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 2
+----------------------------------------------
+H31_01 -> R01 | Rank 3740.27 | Predicted 0.37 ms
+H32_01 -> R02 | Rank 3740.27 | Predicted 0.74 ms
+H33_01 -> R03 | Rank 3740.27 | Predicted 1.47 ms
+H31_01 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+H32_01 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H31_01 finished on R01 | Actual 0.447 ms | New estimate 0.447 ms
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H32_01 finished on R02 | Actual 0.640 ms | New estimate 0.640 ms
+H33_01 started on R03 using V3-Worker-3
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_01
+Task Name : KMP Pattern Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H33_01 finished on R03 | Actual 0.416 ms | New estimate 0.416 ms
+Round 2 completed | Completed=6 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 3
+----------------------------------------------
+H31_05 -> R01 | Rank 3739.90 | Predicted 3739.90 ms
+H32_05 -> R02 | Rank 3739.90 | Predicted 7479.80 ms
+H31_03 -> R03 | Rank 5.21 | Predicted 17.79 ms
+H31_05 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+H32_05 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+H31_03 started on R03 using V3-Worker-3
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H31_03 finished on R03 | Actual 0.484 ms | New estimate 0.484 ms
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+H31_05 finished on R01 | Actual 3550.284 ms | New estimate 3550.284 ms
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+H32_05 finished on R02 | Actual 3670.640 ms | New estimate 3670.640 ms
+Round 3 completed | Completed=9 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 4
+----------------------------------------------
+H33_05 -> R01 | Rank 3739.90 | Predicted 3739.90 ms
+H32_03 -> R02 | Rank 5.21 | Predicted 8.90 ms
+H33_03 -> R03 | Rank 5.21 | Predicted 17.79 ms
+H33_05 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_05
+Task Name : Suffix Array Indexing
+Algorithm : Suffix Array
+Document  : bench_v3_large
+H32_03 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Suffix Array
+Text size  : 10120
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H32_03 finished on R02 | Actual 0.616 ms | New estimate 0.616 ms
+H33_03 started on R03 using V3-Worker-3
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_03
+Task Name : Z Algorithm Analysis
+Algorithm : Z
+Document  : bench_v3_large
+
+[ALGORITHM] Z Algorithm
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H33_03 finished on R03 | Actual 0.620 ms | New estimate 0.620 ms
+Suffixes   : 10120
+LCP array  : 10120
+Suffix 0 -> index 10119 :  
+Suffix 1 -> index 10045 :  algorithm page prediction heterogeneous...
+Suffix 2 -> index 9953 :  algorithm page prediction heterogeneous...
+Suffix 3 -> index 9861 :  algorithm page prediction heterogeneous...
+Suffix 4 -> index 9769 :  algorithm page prediction heterogeneous...
+
+Task completed successfully.
+==============================================
+H33_05 finished on R01 | Actual 3476.122 ms | New estimate 3476.122 ms
+Round 4 completed | Completed=12 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 5
+----------------------------------------------
+H31_04 -> R01 | Rank 1.13 | Predicted 0.37 ms
+H32_04 -> R02 | Rank 1.13 | Predicted 0.74 ms
+H33_04 -> R03 | Rank 1.13 | Predicted 1.47 ms
+H32_04 started on R02 using V3-Worker-2
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+H31_04 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H32_04 finished on R02 | Actual 0.407 ms | New estimate 0.407 ms
+
+[ALGORITHM] KMP
+Pattern    : memory
+Text size  : 10120
+H33_04 started on R03 using V3-Worker-3
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_04
+Task Name : KMP Secondary Search
+Algorithm : KMP
+Document  : bench_v3_large
+Matches    : 110
+Positions  : 0, 92, 184, 276, 368, 460, 552, 644
+[ALGORITHM] KMP
+Pattern    : memory
+, Text size  : 10120
+736, 828 ...
+
+Task completed successfully.
+==============================================
+Matches    : 110
+Positions  : 0, 92H31_04 finished on R01 | Actual 0.788 ms | New estimate 0.788 ms
+, 184, 276, 368, 460, 552, 644, 736, 828 ...
+
+Task completed successfully.
+==============================================
+H33_04 finished on R03 | Actual 0.506 ms | New estimate 0.506 ms
+Round 5 completed | Completed=15 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 6
+----------------------------------------------
+H31_06 -> R01 | Rank 0.76 | Predicted 0.76 ms
+H32_06 -> R02 | Rank 0.76 | Predicted 1.53 ms
+H31_06 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H31_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+H32_06 started on R02 using V3-Worker-2
+
+[ALGORITHM] Edit Distance
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H32_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+H31_06 finished on R01 | Actual 0.402 ms | New estimate 0.402 ms
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+H32_06 finished on R02 | Actual 0.430 ms | New estimate 0.430 ms
+Round 6 completed | Completed=17 Failed=0
+
+----------------------------------------------
+HEFT V3 ROUND 7
+----------------------------------------------
+H33_06 -> R01 | Rank 0.76 | Predicted 0.76 ms
+H33_06 started on R01 using V3-Worker-1
+
+==============================================
+              TASK EXECUTION
+==============================================
+Task ID   : H33_06
+Task Name : Edit Distance Similarity
+Algorithm : Edit Distance
+Document  : bench_v3_dp
+
+[ALGORITHM] Edit Distance
+First part length  : 184
+Second part length : 184
+Edit distance      : 0
+
+Task completed successfully.
+==============================================
+H33_06 finished on R01 | Actual 0.390 ms | New estimate 0.390 ms
+Round 7 completed | Completed=18 Failed=0
+
+==============================================
+         HEFT V3 PERFORMANCE REPORT
+==============================================
+Completed Tasks    : 18
+Failed Tasks       : 0
+Blocked Tasks      : 0
+Scheduling Rounds  : 7
+Makespan (ms)      : 7168
+Throughput         : 2.51 tasks/sec
+CPU Utilization    : 42.66%
+Memory Utilization : 10.66%
+==============================================
+
+==============================================
+          HEFT V3 RUNTIME PROFILES
+==============================================
+H31_01 | KMP                  | Estimate 0.447 ms | Last 0.447 ms | Samples 1
+H31_02 | Rabin-Karp           | Estimate 0.554 ms | Last 0.554 ms | Samples 1
+H31_03 | Z                    | Estimate 0.484 ms | Last 0.484 ms | Samples 1
+H31_04 | KMP                  | Estimate 0.788 ms | Last 0.788 ms | Samples 1
+H31_05 | Suffix Array         | Estimate 3550.284 ms | Last 3550.284 ms | Samples 1
+H31_06 | Edit Distance        | Estimate 0.402 ms | Last 0.402 ms | Samples 1
+H32_01 | KMP                  | Estimate 0.640 ms | Last 0.640 ms | Samples 1
+H32_02 | Rabin-Karp           | Estimate 1.336 ms | Last 1.336 ms | Samples 1
+H32_03 | Z                    | Estimate 0.616 ms | Last 0.616 ms | Samples 1
+H32_04 | KMP                  | Estimate 0.407 ms | Last 0.407 ms | Samples 1
+H32_05 | Suffix Array         | Estimate 3670.640 ms | Last 3670.640 ms | Samples 1
+H32_06 | Edit Distance        | Estimate 0.430 ms | Last 0.430 ms | Samples 1
+H33_01 | KMP                  | Estimate 0.416 ms | Last 0.416 ms | Samples 1
+H33_02 | Rabin-Karp           | Estimate 0.445 ms | Last 0.445 ms | Samples 1
+H33_03 | Z                    | Estimate 0.620 ms | Last 0.620 ms | Samples 1
+H33_04 | KMP                  | Estimate 0.506 ms | Last 0.506 ms | Samples 1
+H33_05 | Suffix Array         | Estimate 3476.122 ms | Last 3476.122 ms | Samples 1
+H33_06 | Edit Distance        | Estimate 0.390 ms | Last 0.390 ms | Samples 1
+
+Intelligent
+Makespan       : 5928 ms
+Completed      : 18
+Failed         : 0
+Blocked        : 0
+Rounds         : 0
+Throughput     : 3.04 tasks/sec
+
+HEFT V2
+Makespan       : 9144 ms
+Completed      : 18
+Failed         : 0
+Blocked        : 0
+Rounds         : 12
+Throughput     : 1.97 tasks/sec
+
+HEFT V3
+Makespan       : 7170 ms
+Completed      : 18
+Failed         : 0
+Blocked        : 0
+Rounds         : 7
+Throughput     : 2.51 tasks/sec
+
+==============================================
+             FINAL COMPARISON
+==============================================
+Scheduler          Makespan(ms)      Speedup   Time Saved
+----------------------------------------------
+Intelligent                5928         1.00x        0.00%
+HEFT V2                    9144         1.54x       35.17%
+HEFT V3                    7170         1.21x       17.32%
+----------------------------------------------
+V3 calibration time (not in makespan): 3758 ms
+==============================================
+IMPORTANT: These numbers are valid only for this
+specific workload, document size and resource model.

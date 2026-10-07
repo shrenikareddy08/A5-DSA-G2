@@ -1,0 +1,7 @@
+ID: D07
+TITLE: Indian Classical Dance
+AUTHOR: Corpus Team
+CATEGORY: Indian Culture
+
+CONTENT:
+Bharatanatyam is a classical Indian dance tradition associated with expressive movement, rhythm and storytelling. Indian performing arts preserve cultural knowledge through generations and provide rich text and metadata collections for analysis.

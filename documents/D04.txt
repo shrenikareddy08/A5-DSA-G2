@@ -1,7 +1,7 @@
 ID: D04
 TITLE: Indian Space Research
-AUTHOR: Shrenika
-CATEGORY: Science
+AUTHOR: Corpus Team
+CATEGORY: Indian Knowledge
 
 CONTENT:
-Indian space research develops launch vehicles, satellites and scientific missions. Space technology supports communication, navigation and Earth observation.
+India has developed a broad space programme involving launch vehicles, satellites and planetary missions. Space research requires scheduling experiments, processing telemetry and indexing large collections of data. Scientific missions depend on reliable computation and careful allocation of limited resources.

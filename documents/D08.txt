@@ -1,0 +1,7 @@
+ID: D08
+TITLE: Indian Constitution
+AUTHOR: Corpus Team
+CATEGORY: Civics
+
+CONTENT:
+The Constitution of India defines institutions, rights, duties and principles for governance. Its text is organized into articles, schedules and amendments. Searching legal phrases and comparing revisions are useful examples of large-scale text processing.

@@ -1,0 +1,81 @@
+============================================================
+15/10 DEMONSTRATION SCRIPT
+INTELLIGENT RESOURCE SCHEDULING FOR TEXT PROCESSING PIPELINES
+============================================================
+
+DEMO 1 - CORPUS
+----------------
+Choose 1.
+Show D01-D10 and explain that these are stored TXT files, not hard-coded
+strings in the algorithm. The system reads CONTENT from the files.
+
+DEMO 2 - FILE HANDLING + WORKLOAD ANALYSIS
+-------------------------------------------
+Choose 3 -> D05.
+Point out characters, words, lines, unique words, estimated CPU, memory
+and work. Explain that this profile becomes the task's resource demand.
+
+DEMO 3 - EXACT SEARCH
+---------------------
+Choose 4 -> D01 -> enter: Operating
+Expected: FOUND, occurrence count and positions.
+Then repeat with a nonsense string such as xyzabc.
+Expected: NOT FOUND, 0 occurrences.
+This proves the result is based on the actual stored file.
+
+DEMO 4 - FUZZY MATCHING
+-----------------------
+Choose 6 -> select D01 and D02.
+Show edit distance and similarity percentage.
+Explain: DP solves the fuzzy matching problem.
+
+DEMO 5 - SUFFIX ARRAY / DOCUMENT SIMILARITY
+--------------------------------------------
+Choose 8 -> select D01 and D02.
+Show longest shared substring, structural similarity, suffix count and
+LCP index size.
+
+DEMO 6 - COMPLETE PIPELINE
+---------------------------
+Choose 10 -> D01 -> D02 -> enter: memory
+The scheduler should execute the independent KMP, Rabin-Karp and Z tasks
+in parallel, then execute dependent suffix/edit stages, then alignment.
+Point out the 3-stage structure and resource assignments.
+
+DEMO 7 - WHY HEFT?
+-------------------
+Choose 11.
+Explain in one sentence:
+"HEFT is not the project goal; it is the scheduling heuristic that decides
+where and when the text-processing workloads execute under dependencies
+and heterogeneous CPU/RAM constraints."
+
+DEMO 8 - NETWORK FLOW
+---------------------
+Choose 13.
+Show D01 -> D10 maximum flow using Edmonds-Karp.
+
+DEMO 9 - RANDOMIZED ALGORITHM
+-----------------------------
+Choose 14 -> enter 2147483647.
+Expected classification: PROBABLY PRIME.
+Explain that Miller-Rabin is a randomized primality test.
+
+DEMO 10 - PERSISTENCE
+----------------------
+Choose 12.
+Show that previous requests are stored in results/request_history.txt.
+
+BEST VIVA POINTS
+----------------
+1. The user interacts with text problems, not with HEFT internals.
+2. Every request becomes a Task object dynamically.
+3. Task requirements come from workload analysis and operation type.
+4. The DAG prevents dependent operations from running early.
+5. HEFT-style upward rank prioritizes work that controls remaining pipeline.
+6. Resource compatibility prevents impossible CPU/RAM placements.
+7. Independent tasks run in parallel.
+8. Actual runtime is measured and fed back into the runtime model.
+9. Results are produced by real manually implemented algorithms.
+10. java.util.* is not used inside the algorithm/scheduling engine.
+============================================================

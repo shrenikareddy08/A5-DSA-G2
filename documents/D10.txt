@@ -1,7 +1,7 @@
 ID: D10
-TITLE: Japanese Language Basics
-AUTHOR: Shrenika
-CATEGORY: Foreign Language
+TITLE: Artificial Intelligence in India
+AUTHOR: Corpus Team
+CATEGORY: Technology
 
 CONTENT:
-Japanese language basics introduce greetings, simple phrases, vocabulary and sentence patterns. Practice supports reading, writing and everyday communication.
+Artificial intelligence research in India spans language technology, computer vision, education and healthcare applications. Text analytics systems use pattern matching, similarity measures and indexing to transform documents into searchable knowledge. Efficient scheduling helps execute many independent analytics tasks concurrently.

@@ -1,0 +1,20 @@
+TEXT HACK WEB — ECLIPSE START
+=============================
+
+1. Import this folder as an Existing Java Project.
+2. Run src/web/Server.java as Java Application.
+3. Console should show:
+   TEXT HACK WEB BACKEND
+   Running at http://localhost:8000
+4. Open http://localhost:8000 in Chrome.
+
+The website is input-driven:
+- select any document
+- select any comparison document
+- enter any pattern
+- choose algorithms in Algorithm Lab
+- upload .txt/.md/.csv documents
+- run the intelligent pipeline
+
+The selected values are sent to the Java backend and the existing DSA
+algorithm implementations produce the returned results.

@@ -1,0 +1,34 @@
+TEXT HACK - RECOMMENDED 5-MINUTE DEMO
+=====================================
+
+1. Start with the main menu and show the DSA-3 algorithm map.
+2. Pattern Search -> Compare all -> search "memory" in D01.
+   Show that KMP, Rabin-Karp and Z agree on the answer.
+3. Fuzzy Matching -> choose D01 and D03.
+   Explain Levenshtein DP and O(nm).
+4. Document Similarity -> choose two documents.
+   Explain Suffix Array + LCP.
+5. Citation Flow -> show maximum flow and Edmonds-Karp.
+6. Intelligent Pipeline -> run the multi-stage DAG.
+   Explain that the text algorithms solve the work and HEFT V3
+   decides when/where compatible tasks execute.
+7. Scheduler & Resources -> explain R01/R02/R03 as logical
+   heterogeneous workers.
+8. Miller-Rabin -> test 2147483647.
+9. System Overview -> finish with the architecture and guarantees.
+
+VIVA CORE ANSWER
+----------------
+TextHack is an advanced text-analytics engine. Each user problem is
+mapped to an appropriate advanced algorithm. The resulting algorithmic
+work becomes a task in a dependency graph. The runtime-aware HEFT V3
+scheduler selects a compatible heterogeneous resource, independent
+ready tasks can execute in parallel, actual runtime is measured, and
+results are stored in history. Therefore the project demonstrates both
+algorithmic correctness and a real systems-level execution layer.
+
+IMPORTANT
+---------
+The bundled corpus is a curated multilingual Indian-topic demonstration
+corpus, not a claim that the files are a full Wikipedia dump. The
+architecture is ready for a larger Indian-language Wikipedia corpus.

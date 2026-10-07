@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>TEXT HACK | Intelligent Text Analytics Engine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">TH</div>
+        <div>
+          <div class="brand-name">TEXT HACK</div>
+          <div class="brand-sub">Intelligent Text Analytics</div>
+        </div>
+      </div>
+
+      <div class="server-card">
+        <span class="status-dot"></span>
+        <div><strong id="serverState">Connecting</strong><small>Java backend · localhost:8000</small></div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-label">WORKSPACE</div>
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-page="lab"><span>◈</span> Algorithm Lab</button>
+        <button class="nav-item" data-page="pipeline"><span>▶</span> Intelligent Pipeline</button>
+        <div class="nav-label">DATA & ANALYSIS</div>
+        <button class="nav-item" data-page="documents"><span>▤</span> Documents</button>
+        <button class="nav-item" data-page="scheduler"><span>◫</span> Scheduler & Resources</button>
+        <button class="nav-item" data-page="history"><span>◷</span> Results & History</button>
+        <div class="nav-label">REFERENCE</div>
+        <button class="nav-item" data-page="map"><span>◇</span> DSA-3 Algorithm Map</button>
+        <button class="nav-item" data-page="overview"><span>◎</span> System Architecture</button>
+      </nav>
+
+      <div class="side-footer">
+        <div><b id="sideDocs">10</b> documents</div>
+        <div><b>3</b> logical workers</div>
+        <div class="side-note">All executions use the Java implementations in this project.</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">INTELLIGENT TEXT PROCESSING PLATFORM</div>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <div class="api-status"><span class="status-dot"></span><span id="apiText">Checking API</span></div>
+          <button class="button primary" onclick="show('pipeline')">▶ Run Pipeline</button>
+        </div>
+      </header>
+
+      <section id="content"></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

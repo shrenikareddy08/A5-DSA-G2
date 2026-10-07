@@ -1,0 +1,418 @@
+
+============================================================
+   INTELLIGENT RESOURCE SCHEDULING FOR TEXT PROCESSING
+                       PIPELINES
+============================================================
+Document Store  |  Text Algorithms  |  Intelligent Scheduler
+User request -> task creation -> resource scheduling -> result
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+============================================================
+                       DOCUMENT LIBRARY
+============================================================
+ 1. D01.txt           160 bytes
+ 2. 30.txt             58 bytes
+ 3. D02.txt           239 bytes
+------------------------------------------------------------
+Stored documents : 3
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+AVAILABLE DOCUMENTS
+-------------------
+1. 30 (30.txt)
+2. D01 (D01.txt)
+3. D02 (D02.txt)
+Select document: 
+============================================================
+                 DOCUMENT INTELLIGENCE
+============================================================
+----------------------------------------------
+Document ID       : D01
+File Name         : D01.txt
+Text Characters   : 73
+Text Words        : 9
+Text Lines        : 1
+Unique Words      : 9
+Estimated CPU     : 1 core(s)
+Estimated Memory  : 128 MB
+Estimated Work    : 1 sec
+----------------------------------------------
+
+============================================================
+                      DOCUMENT CONTENT
+============================================================
+ID: D01
+TITLE: Operating Systems
+AUTHOR: Shrenika
+CATEGORY: Computer Science
+
+CONTENT:
+Operating systems manage computer resources, processes, memory and files.
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+AVAILABLE DOCUMENTS
+-------------------
+1. 30 (30.txt)
+2. D01 (D01.txt)
+3. D02 (D02.txt)
+Select document: Enter EXACT string to find: 
+============================================================
+                    EXACT PATTERN SEARCH
+============================================================
+REQUEST
+  Task ID       : USR001
+  Document      : D01
+  User input    : "Operating"
+  Goal          : Find every exact occurrence of the user's string.
+------------------------------------------------------------
+ALGORITHM SELECTION
+  Selected      : KMP
+  Why           : KMP uses the LPS table to avoid unnecessary re-comparisons.
+------------------------------------------------------------
+WORKLOAD REQUIREMENT
+  Text size     : 73 characters
+  CPU demand    : 1 core(s)
+  Memory demand : 128 MB
+  Priority      : HIGH
+SCHEDULING DECISION
+  Scheduler     : Runtime-aware HEFT V3
+  Task priority : HIGH
+  Initial model : 1000.00 ms
+  Assigned      : R01 - High Performance Worker
+  Actual runtime: 7.65 ms
+  Learned model : 7.65 ms
+  Decision basis: dependency readiness + CPU/RAM compatibility + earliest predicted finish
+------------------------------------------------------------
+RESULT
+  Status        : COMPLETED
+  Output        : Matches=1, Positions=0
+  Scheduler time: 13 ms
+  Tasks         : 1/1
+  Rounds        : 1
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+AVAILABLE DOCUMENTS
+-------------------
+1. 30 (30.txt)
+2. D01 (D01.txt)
+3. D02 (D02.txt)
+Select document: 
+SELECT COMPARISON DOCUMENT
+---------------------------
+1. 30
+2. D02
+Select second document: 
+============================================================
+                    FUZZY DOCUMENT MATCHING
+============================================================
+REQUEST
+  Task ID       : USR002
+  Document      : D01
+  Compare with  : 30
+  Goal          : Measure how different two stored texts are.
+------------------------------------------------------------
+ALGORITHM SELECTION
+  Selected      : Edit Distance
+  Why           : Dynamic programming computes minimum insert, delete and substitute operations.
+------------------------------------------------------------
+WORKLOAD REQUIREMENT
+  Text size     : 73 characters
+  CPU demand    : 2 core(s)
+  Memory demand : 256 MB
+  Priority      : HIGH
+SCHEDULING DECISION
+  Scheduler     : Runtime-aware HEFT V3
+  Task priority : HIGH
+  Initial model : 2000.00 ms
+  Assigned      : R01 - High Performance Worker
+  Actual runtime: 1.16 ms
+  Learned model : 1.16 ms
+  Decision basis: dependency readiness + CPU/RAM compatibility + earliest predicted finish
+------------------------------------------------------------
+RESULT
+  Status        : COMPLETED
+  Output        : Distance=71, Similarity=2.74%
+  Scheduler time: 2 ms
+  Tasks         : 1/1
+  Rounds        : 1
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+AVAILABLE DOCUMENTS
+-------------------
+1. 30 (30.txt)
+2. D01 (D01.txt)
+3. D02 (D02.txt)
+Select document: 
+SELECT COMPARISON DOCUMENT
+---------------------------
+1. 30
+2. D02
+Select second document: Enter exact pattern for the pipeline: 
+============================================================
+          INTELLIGENT TEXT PROCESSING PIPELINE
+============================================================
+Primary text     : D01
+Comparison text  : 30
+Pattern request  : "Operating"
+------------------------------------------------------------
+PIPELINE PURPOSE
+  1. Exact search + independent verification
+  2. Pattern structure analysis
+  3. Build text index and compare documents
+  4. Align the documents after prerequisite analysis
+------------------------------------------------------------
+DAG DEPENDENCIES
+  KMP -----------\
+  Rabin-Karp -----> Suffix Array -----> Alignment
+  Z Algorithm ----/        
+  Z Algorithm ----------------> Edit Distance --/
+============================================================
+
+SCHEDULING ENGINE
+  HEFT V3 role: choose ready tasks and compatible resources
+  Priority    : upward rank from remaining pipeline work
+  Placement   : earliest predicted finish among compatible workers
+  Learning    : actual runtime updates the next prediction
+------------------------------------------------------------
+PIPELINE EXECUTION PLAN + RESULTS
+------------------------------------------------------------
+Stage   Operation                     Algorithm      Resource      Runtime   
+------------------------------------------------------------
+1       Exact Pattern Search          KMP            R01              0.32 ms
+2       Independent Keyword Verification Rabin-Karp     R02              0.86 ms
+3       Pattern Structure Analysis    Z Algorithm    R03              2.65 ms
+4       Text Index Construction       Suffix Array   R01              6.27 ms
+5       Fuzzy Document Similarity     Edit Distance  R02              0.43 ms
+6       Cross-Document Sequence Alignment Sequence Alignment R01              1.34 ms
+------------------------------------------------------------
+PIPELINE RESULT
+  Completed tasks : 6/6
+  Failed tasks    : 0
+  Blocked tasks   : 0
+  Scheduling rounds: 3
+  Makespan        : 13 ms
+------------------------------------------------------------
+USR003 | KMP | Matches=1, Positions=0
+USR004 | Rabin-Karp | Matches=1, Positions=0
+USR005 | Z Algorithm | Matches=1, Positions=0
+USR006 | Suffix Array | Index built: 73 suffixes, 73 LCP entries
+USR007 | Edit Distance | Distance=71, Similarity=2.74%
+USR008 | Sequence Alignment | Alignment score=-137, Compared with=30
+
+STATUS: COMPLETE PIPELINE SUCCESS
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+============================================================
+               SCHEDULING & RESOURCE DASHBOARD
+============================================================
+LOGICAL PROCESSING RESOURCES
+R01 | High Performance Worker | 4 CPU | 4096 MB
+R02 | Balanced Worker         | 2 CPU | 2048 MB
+R03 | Lightweight Worker      | 1 CPU | 1024 MB
+------------------------------------------------------------
+SCHEDULING POLICY
+1. Build task DAG from the requested text workflow
+2. Detect tasks whose dependencies are satisfied
+3. Compute runtime-aware HEFT upward ranks
+4. Reject workers that cannot satisfy CPU/RAM demand
+5. Choose the compatible worker with earliest predicted finish
+6. Execute independent tasks in parallel
+7. Measure actual runtime and learn a new estimate
+8. Track completed, failed and blocked tasks
+------------------------------------------------------------
+HOST SNAPSHOT (JVM)
+Available processor threads : 2
+JVM free memory             : 128 MB
+JVM maximum memory          : 1024 MB
+Note: logical workers are the scheduler's modeled heterogeneous resources;
+      the host snapshot is shown separately and is not falsely treated as worker capacity.
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+============================================================
+                     REQUEST HISTORY
+============================================================
+REQUEST USR001 | FULL PIPELINE | Document=D01 | Algorithm=KMP | Status=COMPLETED | Resource=0 | Runtime=4.63 ms | Result=Matches=1, Positions=0
+REQUEST USR002 | FULL PIPELINE | Document=D01 | Algorithm=Rabin-Karp | Status=COMPLETED | Resource=1 | Runtime=0.74 ms | Result=Matches=1, Positions=0
+REQUEST USR003 | FULL PIPELINE | Document=D01 | Algorithm=Z Algorithm | Status=COMPLETED | Resource=2 | Runtime=1.55 ms | Result=Matches=1, Positions=0
+REQUEST USR004 | FULL PIPELINE | Document=D01 | Algorithm=Suffix Array | Status=COMPLETED | Resource=0 | Runtime=5.17 ms | Result=Index built: 73 suffixes, 73 LCP entries
+REQUEST USR005 | FULL PIPELINE | Document=D01 | Algorithm=Edit Distance | Status=COMPLETED | Resource=1 | Runtime=0.87 ms | Result=Distance=71, Similarity=2.74%
+REQUEST USR006 | FULL PIPELINE | Document=D01 | Algorithm=Sequence Alignment | Status=COMPLETED | Resource=0 | Runtime=0.95 ms | Result=Alignment score=-137, Compared with=30
+REQUEST USR001 | EXACT PATTERN SEARCH | Document=D01 | Algorithm=KMP | Status=COMPLETED | Resource=0 | Runtime=7.65 ms | Result=Matches=1, Positions=0
+REQUEST USR002 | FUZZY DOCUMENT MATCHING | Document=D01 | Algorithm=Edit Distance | Status=COMPLETED | Resource=0 | Runtime=1.16 ms | Result=Distance=71, Similarity=2.74%
+REQUEST USR003 | FULL PIPELINE | Document=D01 | Algorithm=KMP | Status=COMPLETED | Resource=0 | Runtime=0.32 ms | Result=Matches=1, Positions=0
+REQUEST USR004 | FULL PIPELINE | Document=D01 | Algorithm=Rabin-Karp | Status=COMPLETED | Resource=1 | Runtime=0.86 ms | Result=Matches=1, Positions=0
+REQUEST USR005 | FULL PIPELINE | Document=D01 | Algorithm=Z Algorithm | Status=COMPLETED | Resource=2 | Runtime=2.65 ms | Result=Matches=1, Positions=0
+REQUEST USR006 | FULL PIPELINE | Document=D01 | Algorithm=Suffix Array | Status=COMPLETED | Resource=0 | Runtime=6.27 ms | Result=Index built: 73 suffixes, 73 LCP entries
+REQUEST USR007 | FULL PIPELINE | Document=D01 | Algorithm=Edit Distance | Status=COMPLETED | Resource=1 | Runtime=0.43 ms | Result=Distance=71, Similarity=2.74%
+REQUEST USR008 | FULL PIPELINE | Document=D01 | Algorithm=Sequence Alignment | Status=COMPLETED | Resource=0 | Runtime=1.34 ms | Result=Alignment score=-137, Compared with=30
+============================================================
+
+----------------------- MAIN MENU --------------------------
+DOCUMENT MANAGEMENT
+ 1. List stored documents
+ 2. Add a new TXT document
+ 3. Inspect document and workload profile
+
+TEXT PROCESSING REQUESTS
+ 4. Exact pattern search       -> KMP
+ 5. Fast substring search      -> Rabin-Karp
+ 6. Fuzzy document matching    -> Edit Distance
+ 7. Pattern structure analysis -> Z Algorithm
+ 8. Text indexing              -> Suffix Array + LCP
+ 9. Document sequence alignment-> Dynamic Programming
+
+PIPELINE + SCHEDULING
+10. Run complete intelligent text pipeline
+11. View resource and scheduling dashboard
+12. View saved request history
+ 0. Exit
+------------------------------------------------------------
+Enter choice: 
+Application closed.

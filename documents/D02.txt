@@ -4,4 +4,5 @@ AUTHOR: Shrenika
 CATEGORY: Computer Science
 
 CONTENT:
-Computer networks connect systems and allow devices to exchange data. Networks use communication protocols, routing and reliable data transfer.
+Computer networks connect systems and allow processes to exchange data.
+Reliable communication depends on protocols, addressing and resource management.

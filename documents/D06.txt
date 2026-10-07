@@ -1,0 +1,7 @@
+ID: D06
+TITLE: Telugu Language and Literature
+AUTHOR: Corpus Team
+CATEGORY: Indian Language
+
+CONTENT:
+Telugu is a major Indian language with a long literary tradition. తెలుగు భాషలో సాహిత్యం, కవిత్వం మరియు కథా రచనలు ఉన్నాయి. Digital text collections allow researchers to search, compare and index large language corpora efficiently.
